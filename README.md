@@ -1,24 +1,26 @@
-# README
+# Chatter App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Getting Started
+To get started clone the project then install gems:
 
-Things you may want to cover:
+```
+$ gem install bundler
+$ bundle config set --local without 'production'
+$ bundle install
+```
 
-* Ruby version
+Then migrate the database:
 
-* System dependencies
+```
+$ rails db:migrate
+```
 
-* Configuration
+Then run the test suite:
+```
+$ rails test
+```
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Then if the tests pass run the app on a local server:
+```
+$ rails server
+```
