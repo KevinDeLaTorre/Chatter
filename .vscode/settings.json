@@ -1,0 +1,10 @@
+{
+  "favorites.sortOrder": "ASC",
+  "favorites.resources": [
+    "config/routes.rb",
+    "app/controllers",
+    "app/views",
+    "app/models",
+    "test"
+  ]
+}
