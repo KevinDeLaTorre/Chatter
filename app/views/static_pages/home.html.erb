@@ -1,5 +1,8 @@
+<% provide( :title, "Home" ) %>
+
 <html>
-  <title>Home | Chatter</title>
+  <title><%= yield( :title ) %> | Chatter</title>
+
   <h1>Home</h1>
   <p>
     This is the home page for the Chatter App
