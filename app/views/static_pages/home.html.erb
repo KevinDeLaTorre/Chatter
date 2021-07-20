@@ -1,8 +1,9 @@
-<html>
-  <title><%= yield( :title ) %> | Chatter</title>
+<div class="center jumbotron">
+  <h1>Welcome to the Chatter App</h1>
+  <h2>
+    This is the home page for the Chatter App.
+  </h2>
+  <%= link_to "Sign up now!", signup_path, class: "btn btn-lg btn-primary" %>
+</div>
 
-  <h1>Home</h1>
-  <p>
-    This is the home page for the Chatter App
-  </p>
-</html>
+<%= link_to image_tag("rails.svg", alt: "Rails logo", width: "200"), "https://rubyonrails.org/" %>
