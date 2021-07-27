@@ -60,11 +60,12 @@ GEM
       minitest (>= 5.1)
       tzinfo (~> 2.0)
       zeitwerk (~> 2.3)
-    addressable (2.7.0)
+    addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     ansi (1.5.0)
     autoprefixer-rails (10.2.5.1)
       execjs (> 0)
+    bcrypt (3.1.13)
     bindex (0.8.1)
     bootsnap (1.7.2)
       msgpack (~> 1.0)
@@ -88,8 +89,8 @@ GEM
     diff-lcs (1.4.4)
     erubi (1.10.0)
     execjs (2.8.1)
-    ffi (1.15.1)
-    formatador (0.2.5)
+    ffi (1.15.3)
+    formatador (0.3.0)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
     guard (2.16.2)
@@ -121,6 +122,7 @@ GEM
     marcel (1.0.1)
     method_source (1.0.0)
     mini_mime (1.0.3)
+    mini_portile2 (2.5.3)
     minitest (5.11.3)
     minitest-reporters (1.3.8)
       ansi
@@ -130,7 +132,8 @@ GEM
     msgpack (1.4.2)
     nenv (0.3.0)
     nio4r (2.5.7)
-    nokogiri (1.11.7-x86_64-linux)
+    nokogiri (1.11.7)
+      mini_portile2 (~> 2.5.0)
       racc (~> 1.4)
     notiffany (0.1.3)
       nenv (~> 0.1)
@@ -178,7 +181,7 @@ GEM
       method_source
       rake (>= 0.8.7)
       thor (~> 1.0)
-    rake (13.0.3)
+    rake (13.0.6)
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -197,7 +200,7 @@ GEM
       rspec-support (~> 3.10.0)
     rspec-support (3.10.2)
     ruby-progressbar (1.11.0)
-    rubyzip (2.3.0)
+    rubyzip (2.3.2)
     sass-rails (6.0.0)
       sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
@@ -241,12 +244,12 @@ GEM
       nokogiri (~> 1.6)
       rubyzip (>= 1.3.0)
       selenium-webdriver (>= 3.0, < 4.0)
-    webpacker (5.2.1)
+    webpacker (5.4.0)
       activesupport (>= 5.2)
       rack-proxy (>= 0.6.1)
       railties (>= 5.2)
       semantic_range (>= 2.3.0)
-    websocket-driver (0.7.4)
+    websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
     xpath (3.2.0)
@@ -254,13 +257,15 @@ GEM
     zeitwerk (2.4.2)
 
 PLATFORMS
-  x86_64-linux
+  ruby
 
 DEPENDENCIES
+  bcrypt (= 3.1.13)
   bootsnap (= 1.7.2)
   bootstrap-sass (= 3.4.1)
   byebug (= 11.1.3)
   capybara (= 3.35.3)
+  ffi
   guard (= 2.16.2)
   guard-minitest (= 2.4.6)
   jbuilder (= 2.10.0)
@@ -280,7 +285,7 @@ DEPENDENCIES
   turbolinks (= 5.2.1)
   web-console (= 4.1.0)
   webdrivers (= 4.6.0)
-  webpacker (= 5.2.1)
+  webpacker (= 5.4.0)
 
 BUNDLED WITH
-   2.2.19
+   2.1.2
