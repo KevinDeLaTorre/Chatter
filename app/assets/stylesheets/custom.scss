@@ -1,4 +1,6 @@
 @import "bootstrap-sprockets";
+
+// All bootstrapp overrides go above
 @import "bootstrap";
 
 /* universal */
@@ -166,7 +168,7 @@ input {
 }
 
 .field_with_errors {
-  @extend .has_error;
+  @extend .has-error;
   .form-control {
     color: $state-danger-text;
   }
