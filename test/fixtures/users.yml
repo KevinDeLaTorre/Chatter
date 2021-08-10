@@ -1,4 +1,28 @@
 kevin:
-  name: Kevin Example
-  email: kevin@example.com
+  name:            Kevin Example
+  email:           kevin@example.com
   password_digest: <%= User.digest('password') %>
+  admin: true
+
+ariel:
+  name:            Ariel Example
+  email:           ariel@example.com
+  password_digest: <%= User.digest('password') %>
+
+luke:
+  name:            Luke Example
+  email:           luke@example.com
+  password_digest: <%= User.digest('password') %>
+
+ferns:
+  name:            Ferns Example
+  email:           ferns@example.com
+  password_digest: <%= User.digest('password') %>
+
+# Create random test users
+<% 30.times do |n| %>
+user_<%= n %>:
+  name:            <%= "User #{n}" %>
+  email:           <%= "user-#{n}@example.com" %>
+  password_digest: <%= User.digest('password') %>
+<% end %>
