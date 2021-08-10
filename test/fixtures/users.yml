@@ -3,21 +3,29 @@ kevin:
   email:           kevin@example.com
   password_digest: <%= User.digest('password') %>
   admin: true
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 ariel:
   name:            Ariel Example
   email:           ariel@example.com
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 luke:
   name:            Luke Example
   email:           luke@example.com
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 ferns:
   name:            Ferns Example
   email:           ferns@example.com
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 
 # Create random test users
 <% 30.times do |n| %>
@@ -25,4 +33,6 @@ user_<%= n %>:
   name:            <%= "User #{n}" %>
   email:           <%= "user-#{n}@example.com" %>
   password_digest: <%= User.digest('password') %>
+  activated: true
+  activated_at: <%= Time.zone.now %>
 <% end %>
