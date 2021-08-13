@@ -4,7 +4,11 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: :destroy
 
   def index
-    @users = User.where(activated: true).order("created_at ASC").paginate(page: params[:page], per_page: 10)
+    if current_user.admin?
+      @users = User.order("created_at ASC").paginate(page: params[:page], per_page: 10)
+    else
+      @users = User.where(activated: true).order("created_at ASC").paginate(page: params[:page], per_page: 10)
+    end
   end
 
   def show
@@ -47,6 +51,16 @@ class UsersController < ApplicationController
     User.find( params[:id] ).destroy
     flash[:success] = "User deleted"
     redirect_to users_url
+  end
+
+  def manual_activate_toggle
+    if current_user.admin?
+      @user = User.find( params[:id] )
+      @user.toggle!(:activated)
+      redirect_back(fallback_location: root_path)
+    else
+      redirect_to root_url
+    end
   end
 
   private

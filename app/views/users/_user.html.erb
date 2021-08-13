@@ -3,6 +3,13 @@
   <%= link_to user.name, user %>
   <% if current_user.admin? && !current_user?(user) %>
     <%= link_to "delete", user, method: :delete, data: { confirm: "Are you sure?" } %>
+    <% if !user.activated? %>
+      <%= link_to "activate", manual_activate_toggle_user_path(user), method: :put, data: { confirm: "Are you sure?" } %>
+      <p>NOT ACTIVATED</p>
+    <% else %>
+      <%= link_to "deactivate", manual_activate_toggle_user_path(user), method: :put, data: { confirm: "Are you sure?" } %>
+      <p>ACTIVATED</p>
+    <% end %>
   <% end %>
 </li>
 
