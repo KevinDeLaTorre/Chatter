@@ -69,4 +69,21 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_redirected_to root_url
   end
 
+  test "should not allow activation toggle if not admin" do
+    log_in_as(@other_user)
+    assert @other_user.activated?
+    put manual_activate_toggle_user_path(@other_user)
+    assert_response :redirect
+    assert @other_user.reload.activated?
+  end
+
+  test "should toggle activation status when called as admin" do
+    log_in_as(@user)
+    assert @other_user.activated?
+    assert !@other_user.activated_at.nil?
+    put manual_activate_toggle_user_path(@other_user)
+    assert !@other_user.reload.activated?
+    assert @other_user.activated_at.nil?
+  end
+
 end

@@ -56,7 +56,11 @@ class UsersController < ApplicationController
   def manual_activate_toggle
     if current_user.admin?
       @user = User.find( params[:id] )
-      @user.toggle!(:activated)
+      if @user.activated?
+        @user.update_columns(activated: false, activated_at: nil)
+      else
+        @user.toggle!(:activated)
+      end
       redirect_back(fallback_location: root_path)
     else
       redirect_to root_url
