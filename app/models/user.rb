@@ -33,9 +33,10 @@ class User < ApplicationRecord
   end
 
   # Returns true if the given token matches the digest
-  def authenticated?( remember_token )
-    return false if remember_digest.nil?
-    BCrypt::Password.new(remember_digest).is_password?(remember_token)
+  def authenticated?( attribute, token )
+    digest = self.send("#{attribute}_digest")
+    return false if digest.nil?
+    BCrypt::Password.new(digest).is_password?(token)
   end
 
   # Forgets a user
@@ -47,6 +48,16 @@ class User < ApplicationRecord
   # We reuse the remember digest for convenience
   def session_token
     remember_digest || remember
+  end
+
+  # Activates an account
+  def activate
+    update_columns( activated: true, activated_at: Time.zone.now )
+  end
+
+  # Sends activation email
+  def send_activation_email
+    UserMailer.account_activation(self).deliver_now
   end
 
   private
