@@ -10,7 +10,6 @@ inactive:
   name:            Inactive User
   email:           inactive@example.com
   password_digest: <%= User.digest('password') %>
-  admin:           false
   activated:       false
   activated_at:    <%= Time.zone.now %>
 
