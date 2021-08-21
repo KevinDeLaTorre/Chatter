@@ -1,0 +1,46 @@
+orange:
+  content: "I just ate an orange"
+  created_at: <%= 10.minutes.ago %>
+  user: kevin
+
+tau_manifesto:
+  content: "Check out the @tauday site by @mhartl: https://tauday.com"
+  created_at: <%= 3.years.ago %>
+  user: kevin
+
+cat_video:
+  content: "Sad cats are sad: https://youtu.be/PKffm2uI4dk"
+  created_at: <%= 2.hours.ago %>
+  user: kevin
+
+most_recent:
+  content: "Writing a short test"
+  created_at: <%= Time.zone.now %>
+  user: kevin
+
+ants:
+  content: "Oh, is that what you want? Because that's how you get ants!"
+  created_at: <%= 2.years.ago %>
+  user: ariel
+
+zone:
+  content: "Danger zone!"
+  created_at: <%= 3.days.ago %>
+  user: ariel
+
+tone:
+  content: "I'm sorry. Your words made sense, but your sarcastic tone did not."
+  created_at: <%= 20.minutes.ago %>
+  user: luke
+
+van:
+  content: "Dude, this van's, like, rolling probable cause."
+  created_at: <%= 4.hours.ago %>
+  user: luke
+
+<% 30.times do |n| %>
+micropost_<%= n %>:
+  content: <%= Faker::Lorem.sentence(word_count: 5) %>
+  created_at: <%= 42.days.ago %>
+  user: kevin
+<% end %>
