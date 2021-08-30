@@ -13,6 +13,12 @@ Rails.application.routes.draw do
   post   '/login',   to: 'sessions#create'
   delete '/logout',   to: 'sessions#destroy'
 
+  resources :users do
+    member do
+      get :following, :followers
+    end
+  end
+
   put 'activate/:id(.:format)', :to => 'users#manual_activate_toggle', :as => :manual_activate_toggle_user
 
   resources :users
