@@ -1,0 +1,15 @@
+one:
+  follower: kevin
+  followed: ariel
+
+two:
+  follower: kevin
+  followed: luke
+
+three:
+  follower: ariel
+  followed: kevin
+
+four:
+  follower: ferns
+  followed: kevin
